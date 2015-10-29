@@ -21,7 +21,7 @@
   <?php
   // set database connection parameters
   $host = "127.0.0.1";
-  $user = "rgordonatrsgc";
+  $user = "rsgc_raymond_c";
   $pass = "";
   $db = "library";
   $port = 3306;
