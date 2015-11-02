@@ -54,12 +54,62 @@
       echo "</tr>";
   }
   echo "</table>";
-
   ?>
   <h1>Add a title to the library database:</h1>
   <form action="addBookHandler.php" method="post">
     Book title:<br>
     <input type="text" name="title" value="">
+    <br>
+    <input type="submit" value="Submit">
+  </form> 
+  <?php
+  $connection = mysqli_connect($host, $user, $pass, $db, $port) or die(mysql_error());
+ $query = "SELECT * FROM patron;";
+  $result = mysqli_query($connection, $query);
+  
+  // Iterate over the result set
+  echo "<table>";
+  echo "<tr>";
+  echo "<th>";
+  echo "ID";
+  echo "</th>";
+  echo "<th>";
+  echo "First Name";
+  echo "</th>";
+  echo "<th>";
+  echo "Last Name";
+  echo "</th>";
+  echo "</tr>";
+  while ($row = mysqli_fetch_assoc($result)) {
+      echo "<tr>";
+      echo "<td>";
+      echo $row['id'];
+      echo "</td>";
+      echo "<td>";
+      echo $row['firstname'];
+      echo "</td>";
+      echo "<td>";
+      echo $row['lastname'];
+      echo "</td>";
+      echo "</tr>";
+  }
+  echo "</table>";
+
+  ?>
+  
+  <h1>Add a title to the library database:</h1>
+  <form action="addBookHandler.php" method="post">
+    Book title:<br>
+    <input type="text" name="title" value="">
+    <br>
+    <input type="submit" value="Submit">
+  </form> 
+  
+   <h1>Add a patron to the library database:</h1>
+  <form action="AddPatronHandler.php" method="post">
+    Patron Name:<br>
+    <input type="text" name="firstname">
+    <input type="text" name="lastname">
     <br>
     <input type="submit" value="Submit">
   </form> 

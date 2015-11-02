@@ -15,7 +15,7 @@
 
 <body>
   <script src="js/scripts.js"></script>
-  <h1>Adding a book</h1>
+  <h1>Adding a Patron</h1>
   
   <?php
   // set database connection parameters
@@ -31,13 +31,13 @@
   $connection = mysqli_connect($host, $user, $pass, $db, $port) or die(mysql_error());
   
   // And now perform simple query – make sure it's working
-  $query = "INSERT INTO book (title) VALUES ('" . htmlspecialchars($_POST['title']) . "');";
+  $query = "INSERT INTO patron (firstname,lastname) VALUES ('" . htmlspecialchars($_POST['firstname']) . "' , '" . htmlspecialchars($_POST['lastname']) . "');";
   
   // Check to see if query succeeded
   if (mysqli_query($connection, $query)) {
-      echo "<p>Success! The book " . htmlspecialchars($_POST['title']) . "was added to the database.</p>";
+      echo "<p>Success! The book " . htmlspecialchars($_POST['firstname']) . "was added to the database.</p>";
   } else {
-      echo "<p>Uh oh! The book " . htmlspecialchars($_POST['title']) . " could not be added to the database.</p>";
+      echo "<p>Uh oh! The book " . htmlspecialchars($_POST['firstname']) . " could not be added to the database.</p>";
   }
   
   ?>
